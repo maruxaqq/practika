@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="register.css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+    
+    <div class="header__wrapper">
+        <div class="header__logo">
+            <a href="index.html.html" class="header__logo-link">
+                <img src="./img/svg/SAVOR.svg" alt="SAVOR" class="header__logo-pic">
+            </a>
+        </div>
+    
+        <nav class="header__nav">
+            <ul class="header__list">
+    
+                <li class="header__item">
+                    <a href="index.html.html" class="header__link">Home</a>
+                </li>
+    
+                <li class="header__item">
+                    <a href="#!" class="header__link">Pages</a>
+                </li>
+                                
+                <li class="header__item">
+                    <a href="#!" class="header__link">Contact Us</a>
+                </li>
+                                
+                <li class="header__item">
+                    <a href="#!" class="header__link">Blog</a>
+                </li>
+                                
+                <li class="header__item">
+                    <a href="#!" class="header__link">Landing</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+             
+    <ul class="header__list--ex">
+    
+        <li class="header__item--ex">
+            <a href="register.html" class="header__link--ex">Log in / registration</a>
+        </li>
+    
+        <li class="header__item--ex">
+            <a href="table.html.html" class="header__link--ex">book table</a>
+        </li>
+    
+    </ul>
+    </header>
+
+    <main>
+        <div class="circle"></div>
+        <div class="register-from-container">
+            <h1 class="form-title">
+                Registration
+            </h1>
+            <a class="logo">
+                <img src="./img/svg/Vector-prav.svg" class="logo__prav">
+            </a>
+            <h2 class="form-home">
+                Registration
+            </h2>
+            <div class="form-fields">
+                <div class="form-field">
+                    <input type="text" placeholder="Email" id="email">
+                </div>
+                <div class="form-fieldd">
+                    <input type="password" placeholder="Password" id="password">
+                  </div>
+            </div>
+            <div class="form-bottons">
+                <button src="/index-UP.html"class="button" onclick="validateForm()">Register</button>
+            </div>
+        </div>
+    </main>
+
+
+
+
+<script src="/script.js"></script>
+<script>
+    function validateForm() {
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let error = false;
+        if (!validateEmail(email)) {
+            error = true;
+            alert('Неправильный Email / Wrong Email');
+        }
+        if (error) {
+            return false;
+        } else {
+            // alert('Successful login');
+            window.location.href = "index-UP.html"; // Redirect to the main page
+        }
+    }
+    function validateEmail(email) {
+        // Regular expression to validate email format
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+</script>
+</body>
+</html>

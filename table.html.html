@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="table.css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__wrapper">
+                <div class="header__logo">
+                    <a href="index.html.html" class="header__logo-link">
+                        <img src="./img/svg/SAVOR.svg" alt="SAVOR" class="header__logo-pic">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="index.html.html" class="header__link">Home</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#!" class="header__link">Pages</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#!" class="header__link">Contact Us</a>
+                        </li>   
+                        <li class="header__item">
+                            <a href="#!" class="header__link">Blog</a>
+                        </li>            
+                        <li class="header__item">
+                            <a href="#!" class="header__link">Landing</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> 
+            <ul class="header__list--ex">
+                <li class="header__item--ex">
+                    <a href="register.html" class="header__link--ex">Log in / registration</a>
+                </li>
+                <li class="header__item--ex">
+                    <a href="table.html.html" class="header__link--ex">book table</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="circle"></div>
+        <div class="register-from-container">
+            <h1 class="form-title">
+                Reservations
+            </h1>
+            <a class="logo">
+                <img src="./img/svg/Vector-prav.svg" class="logo__prav">
+            </a>
+            <h2 class="form-home">
+                Book A Table
+            </h2>
+            <div class="form-fields">
+                <div class="form-field">
+                    <input type="text" placeholder="1 person" id="person">
+                </div>
+                <div class="form-field">
+                    <input type="text" placeholder="12/05/2021" id="date">
+                </div>
+                <div class="form-field">
+                    <input type="text" placeholder="11:00 AM" id="time">
+                </div>
+            </div>
+            <div class="form-bottons">
+                <button class="button" onclick="validateForm()">Book Now</button>
+            </div>
+        </div>
+    </main>
+    <script src="/script-table.js"></script>
+    <script>
+        function validateForm() {
+            let person = document.getElementById('person').value;
+            let date = document.getElementById('date').value;
+            let time = document.getElementById('time').value;
+            let error = false;
+            if (!validateReservation(person, date, time)) {
+                error = true;
+                alert('Неверные данные для бронирования');
+            }
+            if (error) {
+                return false;
+            } else {
+                alert('Столик успешно забронирован');
+                window.location.href = "index-UP.html"; // Перенаправление на главную страницу
+            }
+        }
+        function validateReservation(person, date, time) {
+            // Проверка количества человек (должно быть число от 1 до 10)
+            const personPattern = /^[1-9]|10$/;
+            return personPattern.test(person);
+            // Проверка даты (должна быть в формате MM/DD/YYYY)
+            const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
+            return datePattern.test(date);
+            // Проверка времени (должно быть в формате HH:MM AM/PM)
+            const timePattern = /^(0?[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$/;
+            return timePattern.test(time);
+        }
+    </script>
+
+</body>
+</html>
